@@ -39,7 +39,11 @@ func attack():
 			coll.kill()
 			
 func kill():
-	queue_free()
+	$DeathSound.play()
+	print($DeathSound.is_playing())
+	while $DeathSound.is_playing():
+		print("still playing")
+
 	
 func set_player(p):
 	player = p

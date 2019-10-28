@@ -25,6 +25,11 @@ cast_to = Vector2( 2000, 0 )
 
 [node name="Gun" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -14.0
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 53.3233, 7.25998 )
+
+[node name="GunTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

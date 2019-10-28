@@ -4,6 +4,8 @@ var MAX_SPEED = 300
 var ACCELERATION = 10000
 var motion = Vector2.ZERO
 
+var upgrade = false
+
 const BULLET = preload("Bullet.tscn")
 
 onready var raycast = $RayCast2D
@@ -46,14 +48,27 @@ func shoot():
 			coll.kill()
 			
 func shoot2():
-	if Input.is_action_just_pressed("shoot"):
-		$Gun.play()
-		var bullet = BULLET.instance()
-		get_parent().add_child(bullet)
-		bullet.position = $Position2D.global_position
-		var trajectory = Vector2(cos(global_rotation), sin(global_rotation))
-		bullet.speed_x = trajectory.x
-		bullet.speed_y = trajectory.y
+	if upgrade:
+		$GunTimer.wait_time = 0.13
+		if Input.is_action_pressed("shoot"):
+			if $GunTimer.is_stopped():
+				create_bullet()
+				$GunTimer.start()
+	else:
+		$GunTimer.wait_time = 0.25
+		if Input.is_action_just_pressed("shoot"):
+			if $GunTimer.is_stopped():
+				create_bullet()
+				$GunTimer.start()
+
+func create_bullet():
+	$Gun.play()
+	var bullet = BULLET.instance()
+	get_parent().add_child(bullet)
+	bullet.position = $Position2D.global_position
+	var trajectory = Vector2(cos(global_rotation), sin(global_rotation))
+	bullet.speed_x = trajectory.x
+	bullet.speed_y = trajectory.y
 
 func kill():
 	get_tree().reload_current_scene()

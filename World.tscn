@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Obstacle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Pickup.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -42,4 +43,7 @@ rotation = 1.5708
 
 [node name="MobTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Pickup" parent="." instance=ExtResource( 5 )]
+position = Vector2( 811.992, 304.128 )
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
