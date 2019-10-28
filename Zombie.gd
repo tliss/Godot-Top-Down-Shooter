@@ -12,8 +12,6 @@ func _ready():
 	add_to_group("zombies")
 	
 func _physics_process(delta):
-
-
 	move(delta)
 	attack()
 
@@ -39,10 +37,12 @@ func attack():
 			coll.kill()
 			
 func kill():
+	hide()
+	$RayCast2D.enabled = false
+	$CollisionShape2D.set_deferred("disabled", true)
 	$DeathSound.play()
-	print($DeathSound.is_playing())
-	while $DeathSound.is_playing():
-		print("still playing")
+	yield($DeathSound, "finished")
+	queue_free()
 
 	
 func set_player(p):
