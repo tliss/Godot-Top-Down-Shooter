@@ -16,3 +16,5 @@ func _on_MobTimer_timeout():
 	var direction = $MobPath/MobSpawnLocation.rotation + PI / 2
 #	direction += rand_range(-PI / 4, PI / 4)
 	mob.rotation = direction
+
+	mob.connect("add_score", $HUD, "update_score")

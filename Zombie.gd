@@ -4,12 +4,15 @@ var MAX_SPEED = 200
 var ACCELERATION = 10000
 var motion = Vector2.ZERO
 
+signal add_score
+
 onready var raycast = $RayCast2D
 
 var player = null
 
 func _ready():
-	add_to_group("zombies")
+	if !is_in_group("zombies"):
+		add_to_group("zombies")
 	
 func _physics_process(delta):
 	move(delta)
@@ -37,6 +40,7 @@ func attack():
 			coll.kill()
 			
 func kill():
+	emit_signal("add_score", 1)
 	hide()
 	$RayCast2D.enabled = false
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -44,8 +48,5 @@ func kill():
 	yield($DeathSound, "finished")
 	queue_free()
 
-	
 func set_player(p):
 	player = p
-		
-	
