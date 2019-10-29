@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://img/uzi.png" type="Texture" id=2]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -13,3 +14,11 @@ margin_right = 20.0
 margin_bottom = 14.0
 text = "0"
 align = 1
+
+[node name="UziIcon" type="TextureRect" parent="."]
+visible = false
+margin_top = 570.0
+margin_right = 512.0
+margin_bottom = 1082.0
+rect_scale = Vector2( 0.062, 0.062 )
+texture = ExtResource( 2 )

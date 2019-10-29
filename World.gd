@@ -4,8 +4,9 @@ export (PackedScene) var Mob
 var score
 
 func _ready():
-    randomize()
-
+	randomize()
+	$Pickup.connect("uzi_pickup", $HUD, "add_weapon")
+	
 func _on_MobTimer_timeout():
 	$MobPath/MobSpawnLocation.set_offset(randi())
 	var mob = Mob.instance()
