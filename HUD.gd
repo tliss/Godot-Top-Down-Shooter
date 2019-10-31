@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready():
-	pass
+	get_node("PickupIcon/UziIcon").visible = false
 
 func update_score(new_points):
     $ScoreLabel.text = str(int($ScoreLabel.text) + new_points)
