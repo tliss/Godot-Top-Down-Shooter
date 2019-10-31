@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://WeaponHUDIcon.gd" type="Script" id=1]
+[ext_resource path="res://img/uzi.png" type="Texture" id=2]
+[ext_resource path="res://AmmoCount.gd" type="Script" id=3]
+
+[node name="WeaponHUDIcon" type="Control"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AmmoCount" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource( 3 )
+
+[node name="AmmoCountPos" type="Position2D" parent="AmmoCount"]
+position = Vector2( 36, 36 )
+scale = Vector2( 1, 1 )
+
+[node name="AmmoText" type="Label" parent="AmmoCount"]
+margin_left = 16.0
+margin_top = 27.0
+margin_right = 56.0
+margin_bottom = 47.0
+text = "0"
+align = 1
+valign = 1

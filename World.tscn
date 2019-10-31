@@ -49,4 +49,7 @@ autostart = true
 position = Vector2( 811.992, 304.128 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Pickup2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 616, 317 )
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
