@@ -50,10 +50,15 @@ func shoot():
 func shoot2():
 	if upgrade:
 		$GunTimer.wait_time = 0.13
+		var gun = get_tree().get_root().get_node("World/HUD/WeaponBar/WeaponHUDIcon")
 		if Input.is_action_pressed("shoot"):
 			if $GunTimer.is_stopped():
 				create_bullet()
 				$GunTimer.start()
+				gun.sub_ammo(1)
+				if gun.get_ammo() == 0:
+					upgrade = false
+					get_tree().get_root().get_node("World/HUD").remove_weapon("uzi")
 	else:
 		$GunTimer.wait_time = 0.25
 		if Input.is_action_just_pressed("shoot"):
