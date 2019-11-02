@@ -15,7 +15,8 @@ text = "0"
 align = 1
 
 [node name="WeaponBar" type="HBoxContainer" parent="."]
-margin_top = 550.0
-margin_right = 500.0
-margin_bottom = 600.0
+margin_left = 8.0
+margin_top = 1024.0
+margin_right = 508.0
+margin_bottom = 1072.0
 grow_horizontal = 0
