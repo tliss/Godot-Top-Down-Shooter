@@ -19,6 +19,12 @@ config/name="Top Down Shooter"
 run/main_scene="res://World.tscn"
 config/icon="res://img/player.png"
 
+[display]
+
+window/size/width=2560
+window/size/height=2560
+window/size/fullscreen=true
+
 [input]
 
 move_up={
