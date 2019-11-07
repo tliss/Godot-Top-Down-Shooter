@@ -25,7 +25,6 @@ script = ExtResource( 3 )
 
 [node name="AmmoCountPos" type="Position2D" parent="AmmoCount"]
 position = Vector2( 36, 36 )
-scale = Vector2( 1, 1 )
 
 [node name="AmmoText" type="Label" parent="AmmoCount"]
 margin_left = 16.0

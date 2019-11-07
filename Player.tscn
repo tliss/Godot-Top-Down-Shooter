@@ -11,6 +11,9 @@ radius = 20.0
 "player",
 ]]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -33,3 +36,11 @@ position = Vector2( 53.3233, 7.25998 )
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 2560
+limit_bottom = 2560
+editor_draw_limits = true
