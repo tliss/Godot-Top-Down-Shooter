@@ -32,8 +32,6 @@ func _on_PickupTimer_timeout():
 	location.x = rng.randi_range(pickup_size.x / 2, 2560 - (pickup_size.x / 2))
 	location.y = rng.randi_range(pickup_size.y / 2, 2560 - (pickup_size.y / 2))
 	
-	print(location)
-	
 	pickup.position = location
 
 	pickup.connect("uzi_pickup", $HUD, "add_weapon")
