@@ -13,7 +13,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Bullet_body_entered(body):
 	if body.is_in_group("zombies"):
-		body.kill()
+		body.kill(global_position)
 		queue_free()
 	if body.is_in_group("obstacle"):
 		queue_free()
