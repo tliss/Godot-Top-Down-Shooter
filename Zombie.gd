@@ -6,6 +6,8 @@ var motion = Vector2.ZERO
 
 signal add_score
 
+const BLOOD = preload("BloodSplurt.tscn")
+
 onready var raycast = $RayCast2D
 
 var player = null
@@ -41,6 +43,10 @@ func attack():
 			
 func kill():
 	emit_signal("add_score", 1)
+#	var blood = BLOOD.instance()
+#	get_parent().add_child(blood)
+#	blood.position = global_position
+#	blood.global_rotation = 
 	hide()
 	$RayCast2D.enabled = false
 	$CollisionShape2D.set_deferred("disabled", true)

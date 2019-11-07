@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://BloodSplurt.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0148148, 0.533333, 1 )
+colors = PoolColorArray( 0.726563, 0, 0, 1, 0.34902, 0.027451, 0.027451, 1, 0.427451, 0.0823529, 0.0823529, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.3988 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 25.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 5.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="BloodSplurt" type="Particles2D"]
+position = Vector2( -30.3048, -0.527039 )
+rotation = 3.14159
+emitting = false
+amount = 100
+lifetime = 0.75
+one_shot = true
+speed_scale = 3.0
+process_material = SubResource( 5 )
+script = ExtResource( 1 )
