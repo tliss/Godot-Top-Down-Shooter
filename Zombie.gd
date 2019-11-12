@@ -46,9 +46,7 @@ func attack():
 func kill(bullet_vector):
 	dying = true
 	emit_signal("add_score", 1)
-	var blood = BLOOD.instance()
-	get_parent().add_child(blood)
-	blood.global_rotation = get_blood_direction(blood, bullet_vector)
+	set_blood_position(bullet_vector)
 	$RayCast2D.enabled = false
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DeathSound.play()
@@ -58,13 +56,6 @@ func kill(bullet_vector):
 func set_player(p):
 	player = p
 	
-func get_blood_direction(blood, bullet_vector):
-	var blood_location = Vector2()
-	blood_location.x = position.x - bullet_vector.x
-	blood_location.y = position.y - bullet_vector.y
-	var length = sqrt(blood_location.x * blood_location.x + blood_location.y + blood_location.y)
-#	blood_location.x = vx / length * size + position.x
-#	blood_location.y = vy / length * size + position.y
-	var angle = atan2(blood_location.y, blood_location.x) + PI/2;
-	return angle
-	
+func set_blood_position(bullet_vector):
+	var blood = BLOOD.instance()
+	get_parent().add_child(blood)
