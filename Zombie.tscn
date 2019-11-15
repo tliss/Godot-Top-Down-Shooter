@@ -16,10 +16,11 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 16.2858, 0.794426 )
+position = Vector2( 1.2858, 0.794426 )
 texture = ExtResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -19, 0 )
 enabled = true
 cast_to = Vector2( 50, 0 )
 

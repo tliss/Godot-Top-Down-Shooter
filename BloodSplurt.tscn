@@ -20,6 +20,7 @@ flag_disable_z = true
 spread = 25.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 50.0
+angular_velocity = 1.05
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle = 360.0
@@ -29,8 +30,6 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [node name="BloodSplurt" type="Particles2D"]
-position = Vector2( -30.3048, -0.527039 )
-rotation = 3.14159
 z_index = -1
 emitting = false
 amount = 100
