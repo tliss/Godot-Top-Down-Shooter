@@ -74,9 +74,30 @@ func spawn_blood(bullet):
 	# TODO: We need to figure out the current rotation of the bullet compared to the WORLD
 	# We then set the blood to be the same rotation.
 	
-	var s = blood.position.normalized().dot(global_position)
+#	var s = blood.position.normalized().dot(global_position)
 	
-	print(str(bullet.position) + ", " + str(bullet.global_position) + ", " + str(bullet.ro))
+	# Breakthrough! We want to use "get_angle_to"! https://docs.godotengine.org/en/3.1/classes/class_node2d.html
+	#Also https://godotengine.org/qa/44449/problems-with-rotation-look_at-and-faces-in-2d
+	
+	print(intersect_list)
+	
+	print(str(bullet.position))
+	print(str(bullet.global_position))
+	print(str(bullet.position.normalized()))
+	print(str(bullet.global_position.normalized()))	
+	print(str(bullet.rotation))
+	print(str(bullet.global_rotation))
+	print("---------------------")
+	print(str(blood.position))
+	print(str(blood.global_position))
+	print(str(blood.position.normalized()))
+	print(str(blood.global_position.normalized()))	
+	print(str(blood.rotation))
+	print(str(blood.global_rotation))
+	
+	print(str(blood.get_angle_to(bullet.position)))
+	
+	blood.rotation = blood.get_angle_to(bullet.position)
 
 
 #	var bullet_dir = bullet.global_position.normalized()
