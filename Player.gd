@@ -70,6 +70,7 @@ func create_bullet():
 	$Gun.play()
 	var bullet = BULLET.instance()
 	get_parent().add_child(bullet)
+	bullet.inherited_rotation = rotation
 	bullet.position = $Position2D.global_position
 	var trajectory = Vector2(cos(global_rotation), sin(global_rotation))
 	bullet.speed_x = trajectory.x

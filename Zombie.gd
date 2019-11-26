@@ -45,7 +45,7 @@ func attack():
 		var coll = raycast.get_collider()
 		if coll.name == "Player":
 			coll.kill()
-			
+
 func kill(bullet):
 	dying = true
 	emit_signal("add_score", 1)
@@ -69,6 +69,12 @@ func spawn_blood(bullet):
 	var intersect_list = c_shape.collide_and_get_contacts(transform, bullet_shape, bullet.transform)
 	if intersect_list.size() > 0:
 		blood.position = intersect_list[0]
+	
+		var blood_direction = $RayCast2D
+		blood_direction.global_position = intersect_list[0]
+		blood_direction.set_cast_to(Vector2(50,0))
+		get_parent().add_child(blood_direction)
+		
 	
 	# Rotate the blood
 	# TODO: We need to figure out the current rotation of the bullet compared to the WORLD

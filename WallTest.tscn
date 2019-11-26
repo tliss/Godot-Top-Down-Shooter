@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Wall.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( 349, 127, 583, 164, 574, 388, 531, 491, 467, 440, 525, 365, 516, 204, 341, 187 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 209, 330 )
